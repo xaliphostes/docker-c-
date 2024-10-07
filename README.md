@@ -48,12 +48,12 @@ The output file is in the `src` folder.
 
 1. **Useful alias** (to be added to `~/.bashrc` or `~/.zshrc`)
 ```bash
-alias docker-build='~/projet_dev/docker/scripts/build.sh'
-alias docker-compile='~/projet_dev/docker/scripts/compile.sh'
-alias docker-run='~/projet_dev/docker/scripts/run.sh'
+alias docker-build='~/project_dev/docker/scripts/build.sh'
+alias docker-compile='~/project_dev/docker/scripts/compile.sh'
+alias docker-run='~/project_dev/docker/scripts/run.sh'
 ```
 
 2. **Interactif shell in the contener**
 ```bash
-docker run -it --rm -v "$(pwd)":/projet ubuntu-dev bash
+docker run -it --rm -v "$(pwd)":/project ubuntu-dev bash
 ```

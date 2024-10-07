@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
     valgrind \
     && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /projet
+WORKDIR /project
 ```
 
 2. **Compilation script with tests**

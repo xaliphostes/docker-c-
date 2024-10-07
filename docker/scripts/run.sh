@@ -12,6 +12,6 @@ PROG_NAME=$(basename "${PROG_PATH}")
 shift
 
 docker run --rm \
-    -v "${PROG_DIR}":/projet \
+    -v "${PROG_DIR}":/project \
     ubuntu-dev \
-    "/projet/${PROG_NAME}" "$@"
+    "/project/${PROG_NAME}" "$@"

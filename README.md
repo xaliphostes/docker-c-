@@ -4,6 +4,21 @@ platform (macOs, Window$, Linux flavor), install the generated binary and run it
 
 It uses docker images and containers.
 
+The project structure is as follow:
+```sh
+project/
+├── docker/
+│   ├── Dockerfile # the unbuntu-dev image
+│   ├── scripts
+│   │   ├── build.sh   # to create the unbuntu-dev image
+│   │   ├── compile.sh # to compile the c++ code using cmake
+│   │   └── run.sh     # to run the generated binary with arguments
+├── src/
+│   ├── main.cpp
+│   └── CMakeLists.txt
+└── dist/ # where the binary will be generated as well as the output file from run.sh
+```
+
 # Usage
 
 ## First step

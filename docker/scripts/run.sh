@@ -9,7 +9,7 @@ fi
 PROG_PATH=$(realpath "$1")
 PROG_DIR=$(dirname "${PROG_PATH}")
 PROG_NAME=$(basename "${PROG_PATH}")
-shift  # Retire le premier argument
+shift
 
 docker run --rm \
     -v "${PROG_DIR}":/projet \

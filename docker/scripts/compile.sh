@@ -7,16 +7,16 @@ if [ "$#" -lt 1 ]; then
 fi
 
 SOURCE_FILE=$1
-shift  # Retire le premier argument, laissant les options g++ éventuelles
+shift  # Remove the first argument (program name)
 
-# Obtient le chemin absolu du répertoire source
+# Get teh absolute path of the sources
 SRC_DIR=$(cd "$(dirname "${SOURCE_FILE}")" && pwd)
 SOURCE_NAME=$(basename "${SOURCE_FILE}")
-OUTPUT_NAME="${SOURCE_NAME%.*}"  # Retire l'extension .cpp
+OUTPUT_NAME="${SOURCE_NAME%.*}"  # Remove the .cpp extension
 
 docker run --rm \
     -v "${SRC_DIR}":/projet \
     ubuntu-dev \
     bash -c "g++ /projet/${SOURCE_NAME} -o /projet/${OUTPUT_NAME} $*"
 
-echo "Compilation terminée. Binaire créé : ${OUTPUT_NAME}"
+echo "Compilation done. Binary created : ${OUTPUT_NAME}"

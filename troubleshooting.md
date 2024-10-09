@@ -43,5 +43,5 @@ set -e
 ./docker/scripts/compile.sh src/main.cpp -Wall -Wextra
 
 echo "Running tests..."
-./docker/scripts/run.sh src/main test
+./docker/scripts/run.sh input output
 ```

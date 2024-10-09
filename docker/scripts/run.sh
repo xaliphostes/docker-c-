@@ -2,16 +2,16 @@
 set -e
 
 if [ "$#" -lt 1 ]; then
-    echo "Usage: $0  [arguments]"
+    echo "Usage: $0 <inputfile> <outputfile>"
     exit -1
 fi
 
-PROG_PATH=$(realpath "$1")
-PROG_DIR=$(dirname "${PROG_PATH}")
-PROG_NAME=$(basename "${PROG_PATH}")
-shift
+PROG_DIR=$(dirname $(dirname $(realpath "$1")))
+PROG_NAME="project"
+
+ls $PROG_DIR/dist
 
 docker run --rm \
     -v "${PROG_DIR}":/project \
     ubuntu-dev \
-    "/project/${PROG_NAME}" "$@"
+    "/project/dist/${PROG_NAME}" "$@"

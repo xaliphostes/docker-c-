@@ -8,15 +8,16 @@ The project structure is as follow:
 ```sh
 project/
 ├── docker/
-│   ├── Dockerfile # the unbuntu-dev image
+│   ├── Dockerfile     # the unbuntu-dev image
 │   ├── scripts
-│   │   ├── build.sh   # to create the unbuntu-dev image
+│   │   ├── build-ubuntu.sh   # to create the unbuntu-dev image
 │   │   ├── compile.sh # to compile the c++ code using cmake
 │   │   └── run.sh     # to run the generated binary with arguments
 ├── src/
-│   ├── main.cpp
-│   └── CMakeLists.txt
-└── dist/ # where the binary will be generated as well as the output file from run.sh
+│   ├── input.txt      # An input file for testing the C++ code
+│   ├── main.cpp       # The C++ code
+│   └── CMakeLists.txt # The cmake file used to compile the code 
+└── dist/              # where the binary will be generated
 ```
 
 # Usage
@@ -30,7 +31,7 @@ chmod +x docker/scripts/*.sh
 
 2. **Creation of the `ubuntu-dev` image**
 ```bash
-./docker/scripts/build.sh
+./docker/scripts/build-ubuntu.sh
 ```
 
 ## Daily use
@@ -42,10 +43,19 @@ chmod +x docker/scripts/*.sh
 The generated binary is in the `src` folder.
 
 2. **Execute the compiled program**
+
+Usage:
 ```bash
-./docker/scripts/run.sh src/main
+./docker/scripts/run.sh <inputfile> <outputfile>
 ```
-The output file is in the `src` folder.
+- The inputfile must be an existing file.
+- The outputfile will be generated
+
+Example:
+```bash
+./docker/scripts/run.sh ./src/input.txt ./dist/result.txt
+```
+The output file `result.txt` will be written in the `dist` folder.
 
 ## Examples
 
@@ -54,16 +64,12 @@ The output file is in the `src` folder.
 ./docker/scripts/compile.sh src/main.cpp -O2 -Wall
 ```
 
-2. **Execute with arguments**
-```bash
-./docker/scripts/run.sh src/main arg1 arg2
-```
 
 ## Practical advices
 
 1. **Useful alias** (to be added to `~/.bashrc` or `~/.zshrc`)
 ```bash
-alias docker-build='~/project_dev/docker/scripts/build.sh'
+alias docker-build='~/project_dev/docker/scripts/build-ubuntu.sh'
 alias docker-compile='~/project_dev/docker/scripts/compile.sh'
 alias docker-run='~/project_dev/docker/scripts/run.sh'
 ```

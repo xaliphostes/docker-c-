@@ -1,0 +1,12 @@
+1) Chemins de fichiers
+Utilisez toujours des chemins absolus pour éviter les confusions
+Les chemins dans le conteneur sont différents des chemins sur macOS
+
+2) Performance
+Pour les gros fichiers, considérez le traitement par lots
+Vous pouvez ajouter une barre de progression pour les longs traitements
+
+
+3) Débogage
+Ajoutez des messages d'erreur détaillés
+Vérifiez les permissions des fichiers
